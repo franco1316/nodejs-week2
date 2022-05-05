@@ -25,8 +25,11 @@ const createUserValidations = [
   body("email")
     .notEmpty()
     .withMessage("The property email cannot be empty")
+    /*
     .isEmail()
-    .withMessage("Email must be in a valid format"),
+    .withMessage("Email must be in a valid format")*/
+    //is email mas bien impide que ponga bien el email
+    ,
   body("password")
     .notEmpty()
     .withMessage("The property password cannot be empty")
