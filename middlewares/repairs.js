@@ -22,7 +22,7 @@ const repairsPendingById = catchAsync(async (req, res, next) => {
   next();
 });
 
-const createRepairValidation = () => {[
+const createRepairValidations = [
   body("date")
     .notEmpty()
     .withMessage("The property date cannot be empty")
@@ -43,7 +43,7 @@ const createRepairValidation = () => {[
     .withMessage("Comments must be between 2-150 characters")
     .isString()
     .withMessage("Comments must be a string"),
-]};
+];
 
 const checkValidations = (req, res, next) => {
   const errors = validationResult(req);
@@ -61,6 +61,6 @@ const checkValidations = (req, res, next) => {
 
 module.exports = {
   repairsPendingById,
-  createRepairValidation,
+  createRepairValidations,
   checkValidations,
 };

@@ -19,7 +19,7 @@ router
   .post(createUserValidations, checkValidations, addNewUser);
 
 router
-  .route(":id")
+  .route("/:id")
   .get(userExist, getUserById)
   .patch(userExist, updateUserById)
   .delete(userExist, deleteUserById);

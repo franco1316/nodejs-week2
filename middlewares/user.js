@@ -32,9 +32,8 @@ const createUserValidations = [
     .withMessage("The property password cannot be empty")
     .isLength({
       min: 8,
-      max: 16,
     })
-    .withMessage("Password must be between 8-16 characters"),
+    .withMessage("Password must be at least 8 characters"),
 ];
 
 const checkValidations = (req, res, next) => {
@@ -50,5 +49,6 @@ const checkValidations = (req, res, next) => {
   }
   next();
 };
+
 
 module.exports = { userExist, createUserValidations, checkValidations };

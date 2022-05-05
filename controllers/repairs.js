@@ -3,7 +3,7 @@ const { Repairs } = require("../models/reapairs");
 const { catchAsync } = require("../utils/catchAsync");
 
 const getAllRepairs = catchAsync(async (req, res) => {
-  const allRepairs = await Data.findAll({
+  const allRepairs = await Repairs.findAll({
     where: { status: "pending" },
   });
 
@@ -15,7 +15,7 @@ const getAllRepairs = catchAsync(async (req, res) => {
 const getRepairById = catchAsync(async (req, res) => {
   const { id } = req.params;
 
-  const repair = await Data.findOne({
+  const repair = await Repairs.findOne({
     where: {
       status: "pending",
       id,
@@ -30,7 +30,7 @@ const getRepairById = catchAsync(async (req, res) => {
 const addRepair = catchAsync(async (req, res) => {
   const { date, userId } = req.body;
 
-  const newRepair = await Data.create({
+  const newRepair = await Repairs.create({
     date,
     userId,
   });
@@ -43,7 +43,7 @@ const addRepair = catchAsync(async (req, res) => {
 const updateRepairById = catchAsync(async (req, res) => {
   const { id } = req.params;
 
-  const updateRepair = await Data.findOne({
+  const updateRepair = await Repairs.findOne({
     where: {
       status: "pending",
       id,
@@ -62,7 +62,7 @@ const updateRepairById = catchAsync(async (req, res) => {
 const deleteRepairById = catchAsync(async (req, res) => {
   const { id } = req.params;
 
-  const deleteRepair = await Data.findOne({
+  const deleteRepair = await Repairs.findOne({
     where: {
       status: "pending",
       id,
