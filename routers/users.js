@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { userExist } = require("../middlewares/user");
+const { userExist, checkValidations } = require("../middlewares/user");
 const { createUserValidations } = require("../middlewares/user");
 
 const {

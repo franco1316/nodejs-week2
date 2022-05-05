@@ -4,7 +4,7 @@ const {
   repairsPendingById,
   checkValidations,
 } = require("../middlewares/repairs");
-const { createRepairValidations } = require("../middlewares/repairs");
+const { createRepairValidation } = require("../middlewares/repairs");
 
 const {
   getAllRepairs,
@@ -19,7 +19,7 @@ const router = express.Router();
 router
   .route("/")
   .get(getAllRepairs)
-  .post(createRepairValidations, checkValidations, addRepair);
+  .post(createRepairValidation, checkValidations, addRepair);
 
 router
   .route(":id")

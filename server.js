@@ -12,7 +12,7 @@ db.authenticate()
 User.hasMany(Repairs);
 Repairs.belongsTo(User);
 
-db.sync({ force: true })
+db.sync()
   .then(() => console.log("synced"))
   .catch((err) => console.log(err));
 

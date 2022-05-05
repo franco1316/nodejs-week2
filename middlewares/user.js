@@ -14,7 +14,7 @@ const userExist = catchAsync(async (req, res, next) => {
   });
 
   if (!user) {
-    return next(newAppError("User doesnt exist given that id: " + id, 404));
+    return next(new AppError("User doesnt exist given that id: " + id, 404));
   }
   req.user;
   next();

@@ -15,19 +15,14 @@ const repairsPendingById = catchAsync(async (req, res, next) => {
   });
 
   if (!repair) {
-    return next(
-      newAppError(
-        "User doesnt exist given that id: " + id + " and status pending",
-        404
-      )
-    );
+    return next(new AppError("User doesnt repair given that id: " + id, 404));
   }
 
   req.repair = repair;
   next();
 });
 
-const createRepairValidation = [
+const createRepairValidation = () => {[
   body("date")
     .notEmpty()
     .withMessage("The property date cannot be empty")
@@ -36,7 +31,7 @@ const createRepairValidation = [
   body("computerNumber")
     .notEmpty()
     .withMessage("The property computerNumber cannot be empty")
-    .isNumber()
+    .isInt()
     .withMessage("The property computerNumber must be a number"),
   body("comments")
     .notEmpty()
@@ -48,7 +43,7 @@ const createRepairValidation = [
     .withMessage("Comments must be between 2-150 characters")
     .isString()
     .withMessage("Comments must be a string"),
-];
+]};
 
 const checkValidations = (req, res, next) => {
   const errors = validationResult(req);

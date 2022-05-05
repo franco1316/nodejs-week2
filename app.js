@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { globalErrorHandler } = require("./controllers/errors.controller");
+const { globalErrorHandler } = require("./controllers/errors");
 
 const { users } = require("./routers/users");
 const { repairs } = require("./routers/repairs");

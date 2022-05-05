@@ -14,7 +14,7 @@ const Repairs = db.define("data", {
   },
 
   computerNumber: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.INTEGER,
     unique: true,
   },
 
